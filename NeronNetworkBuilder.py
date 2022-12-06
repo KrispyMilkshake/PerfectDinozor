@@ -20,40 +20,32 @@ class NeronNetworkBuilder:
     @staticmethod
     def merge_two_nn(first_nn: NeronNetwork, second_nn: NeronNetwork) -> NeronNetwork:
         weight_list = []
-        biest_list = []
-
-        for i in range(len(first_nn.weight_list)):
-            weight_metrix = []
-            biest_metrix = []
-
-            for j in range(len(first_nn.weight_list[i])):
-                weight_array = []
-                for k in range(len(first_nn.weight_list[i][j])):
-                    weight_coin = random.random()
-                    if weight_coin <= 0.45:
-                        weight_array.append(first_nn.weight_list[i][j][k])
-                    elif weight_coin <= 0.9:
-                        weight_array.append(second_nn.weight_list[i][j][k])
-                    else:
-                        weight_array.append(random.random())
-                weight_metrix.append(weight_array)
-
-            for j in range(len(first_nn.biest_list[i])):
-                biest_array = []
-                for k in range(len(first_nn.biest_list[i][j])):
-                    biest_coin = random.random()
-                    if biest_coin <= 0.45:
-                        biest_array.append(first_nn.biest_list[i][j][k])
-                    elif biest_coin <= 0.9:
-                        biest_array.append(second_nn.biest_list[i][j][k])
-                    else:
-                        biest_array.append(random.random())
-                biest_metrix.append(biest_array)
-
+        for w1, w2 in zip(first_nn.weight_list, second_nn.weight_list):
+            weight_metrix = NeronNetworkBuilder.marage_matrix(w1, w2)
             weight_list.append(np.array(weight_metrix))
+
+        biest_list = []
+        for b1, b2 in zip(first_nn.biest_list, second_nn.biest_list):
+            biest_metrix = NeronNetworkBuilder.marage_matrix(b1, b2)
             biest_list.append(np.array(biest_metrix))
 
         return NeronNetwork(weight_list, biest_list)
+
+    @staticmethod
+    def marage_matrix(first_metrix, second_metrix):
+        metrix = []
+        for i in range(len(first_metrix)):
+            array = []
+            for j in range(len(first_metrix[i])):
+                weight_coin = random.random()
+                if weight_coin <= 0.45:
+                    array.append(first_metrix[i][j])
+                elif weight_coin <= 0.9:
+                    array.append(second_metrix[i][j])
+                else:
+                    array.append(random.random())
+            metrix.append(array)
+        return metrix
 
 
 if __name__ == '__main__':
