@@ -23,6 +23,11 @@ class NeronNetwork:
         layer = np.tanh(layer)
         return layer
 
+    def __str__(self):
+        print(self.weight_list)
+        print(self.biest_list)
+        return ""
+
 
 if __name__ == '__main__':
     weight_list = [rand0m((3, 10)), rand0m((10, 10)), rand0m((10, 2))]
