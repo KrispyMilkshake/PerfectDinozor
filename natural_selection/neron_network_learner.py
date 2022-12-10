@@ -2,7 +2,7 @@ import random
 from collections import Counter
 from typing import Dict, List
 
-from NeronNetwork import NeronNetwork
+from natural_selection.NeronNetwork import NeronNetwork
 
 
 class NeronNetworkLearner:

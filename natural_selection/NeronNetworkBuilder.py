@@ -3,8 +3,8 @@ from typing import List
 
 import numpy as np
 
-from NeronNetwork import NeronNetwork
-from NeronNetwork import rand0m
+from natural_selection.NeronNetwork import NeronNetwork
+from natural_selection.NeronNetwork import rand0m
 
 
 class NeronNetworkBuilder:
