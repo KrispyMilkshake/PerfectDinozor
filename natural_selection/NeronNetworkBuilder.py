@@ -18,6 +18,14 @@ class NeronNetworkBuilder:
         return NeronNetwork(weight_list, biest_list)
 
     @staticmethod
+    def create_random_nn_list(size_list: List[int], nn_amount: int) -> List[NeronNetwork]:
+        neron_networks = []
+        for _ in range (nn_amount):
+            neron_networks.append(NeronNetworkBuilder.create_random_nn(size_list))
+        return neron_networks
+
+
+    @staticmethod
     def merge_two_nn(first_nn: NeronNetwork, second_nn: NeronNetwork) -> NeronNetwork:
         weight_list = []
         for w1, w2 in zip(first_nn.weight_list, second_nn.weight_list):

@@ -2,6 +2,8 @@ import random
 from collections import Counter
 from typing import Dict, List
 
+from dinozr_game.game import game
+from dinozr_game.neron_network_dinozor import NeronNetworkDinozor
 from natural_selection.NeronNetwork import NeronNetwork
 
 
