@@ -9,7 +9,7 @@ NUMBER_OF_NN_IN_GENERATION = 100
 
 def main():
     nn_list = NeronNetworkBuilder.create_random_nn_list(SIZE_LIST, NUMBER_OF_NN_IN_GENERATION)
-    for _ in range(10):
+    for _ in range(10000):
         nn_players = [NeronNetworkDinozor(i) for i in nn_list]
         dic_nn_to_score = game.game(nn_players)
 
